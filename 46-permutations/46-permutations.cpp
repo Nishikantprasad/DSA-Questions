@@ -9,6 +9,7 @@ private:
         for(int j =index;j<nums.size();j++){
             swap(nums[index] ,nums[j]); 
             solve(nums,index+1,ans);
+            //backtracking
             swap(nums[index] ,nums[j]); 
         }
     }
