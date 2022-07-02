@@ -19,7 +19,8 @@ class Solution{
                     return false;
                 }
     }
-    void solve(vector<vector<int>> &m, int n,vector<string>& ans,int x,int y,
+
+  void solve(vector<vector<int>> &m, int n,vector<string>& ans,int x,int y,
         vector<vector<int> > visited,string path){
             //base case
             if(x ==n-1 && y == n-1){
