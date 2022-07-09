@@ -104,8 +104,8 @@ struct Node
 }; */
 
 class Solution {
-public:
-    void traverseLeft(Node *root, vector<int> &ans){
+private:
+    void traverseLeft(Node *root, vector<int>& ans){
         if(root == NULL){
             return ;
         }
@@ -120,24 +120,21 @@ public:
             traverseLeft(root->right,ans);
         }
     }
-    
-    void traverseLeaf(Node *root, vector<int> &ans){
+    void traverseLeaf(Node *root , vector<int>&  ans){
         if(root == NULL){
             return ;
         }
         if(root->left == NULL && root->right == NULL){
             ans.push_back(root->data);
-            return ;
         }
         traverseLeaf(root->left,ans);
         traverseLeaf(root->right,ans);
     }
-    
-    void traverseRight(Node *root, vector<int> &ans){
-        if(root == NULL){
+    void traverseRight(Node *root , vector<int> & ans){
+        if(root== NULL){
             return ;
         }
-        if(root->left== NULL && root->right == NULL){
+        if(root->right == NULL && root->left == NULL){
             return ;
         }
         if(root->right){
@@ -148,23 +145,23 @@ public:
         }
         ans.push_back(root->data);
     }
+public:
     vector <int> boundary(Node *root)
     {
         //Your code here
-        vector<int> ans;
-        if(root==NULL){
-            return ans; 
+        vector<int> ans ;
+        if(root == NULL){
+            return ans;
         }
         ans.push_back(root->data);
-        //left part print / store
-        traverseLeft(root->left, ans);
-        
-        //traverse leaf nodes
-        //traverse left subtree
+        //Traverse left part
+        traverseLeft(root->left,ans);
+        //Traverse leaf
+        //left subtree
         traverseLeaf(root->left,ans);
-        //traverese right subtree
+        //right subtree
         traverseLeaf(root->right,ans);
-        //traverse right part
+        //Traverse right part
         traverseRight(root->right,ans);
         return ans;
     }
