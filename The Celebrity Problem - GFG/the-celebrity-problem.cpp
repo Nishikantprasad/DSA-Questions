@@ -44,7 +44,7 @@ class Solution
         int candidate =  s.top();
         //single element is potential celebrity
         //so verify it 
-        bool checkRow = false;
+        bool rowCheck = false;
         int zeroCount = 0;
         for(int i =0;i<n;i++){
             if(M[candidate][i]==0){
@@ -52,7 +52,7 @@ class Solution
             }
         }
         if(zeroCount == n){
-            checkRow= true;
+            rowCheck= true;
         }
         bool colCheck = false;
         int oneCount = 0;
@@ -64,7 +64,7 @@ class Solution
         if(oneCount == n-1){
             colCheck = true;
         }
-        if(checkRow == true && colCheck == true){
+        if(rowCheck == true && colCheck == true){
             return candidate;
         }
         else{
