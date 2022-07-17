@@ -8,7 +8,7 @@ public:
                 return nums[i];
             }
         }
-        return nums[0];
+        return -1;
     }
 };
     
