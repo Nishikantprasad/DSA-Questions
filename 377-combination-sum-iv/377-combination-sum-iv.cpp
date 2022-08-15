@@ -11,7 +11,7 @@ public:
         
         //step 2:
         dp[target] =0;
-        for(int &i : nums){
+        for(int i : nums){
             if(target >=i ){
                 dp[target ] = dp[target] + solve(nums, target-i,dp);
             }
