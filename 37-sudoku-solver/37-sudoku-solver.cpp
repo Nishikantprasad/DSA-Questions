@@ -28,8 +28,8 @@ public:
                         if(isSafe(row, col, board,val)){
                             board[row][col] = val +'0';
                             
-                            bool aageSolutionPossible = solve(board,n);
-                            if(aageSolutionPossible){
+                            bool SolutionPossible = solve(board,n);
+                            if(SolutionPossible){
                                 return true;
                             }
                             else{
