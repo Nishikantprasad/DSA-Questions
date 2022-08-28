@@ -9,11 +9,11 @@ public:
             return dp[i][j];
         }
         int right = solveMem(matrix, n,m,dp,maxi,i,j+1);
-        int diagnol = solveMem(matrix, n,m,dp,maxi,i+1,j+1);
+        int diagonal = solveMem(matrix, n,m,dp,maxi,i+1,j+1);
         int down = solveMem(matrix, n,m,dp,maxi,i+1,j);
         
         if(matrix[i][j] == '1'){
-            dp[i][j] =  1 + min(right , min(diagnol,down));
+            dp[i][j] =  1 + min(right , min(diagonal,down));
             maxi = max(maxi,dp[i][j]);
             return dp[i][j];
         }
