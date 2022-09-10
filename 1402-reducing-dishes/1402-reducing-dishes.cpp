@@ -1,14 +1,17 @@
 class Solution {
 public:
-    int solveRec(vector<int>& satisfaction,int index, int time){
-        if(index == satisfaction.size()){
-            return 0;
-        }
-        int include = satisfaction[index] *(time+1) + solveRec(satisfaction , index+1,time+1);
-        int exclude = 0 + solveRec(satisfaction , index+1, time);
-        return max(include,exclude);
-    }
+    //RECURSION 
+//     int solveRec(vector<int>& satisfaction,int index, int time){
+//         if(index == satisfaction.size()){
+//             return 0;
+//         }
+//         int include = satisfaction[index] *(time+1) + solveRec(satisfaction , index+1,time+1);
+//         int exclude = 0 + solveRec(satisfaction , index+1, time);
+//         return max(include,exclude);
+//     }
     
+    
+    //MEMOIZATION 
     int solveMem(vector<int>& satisfaction,int index, int time ,vector<vector<int>> &dp){
         if(index == satisfaction.size()){
             return 0;
