@@ -1,7 +1,7 @@
 class Solution {
 public:
-    vector<vector<int>> dp;
-    int solve(vector<int>& nums, vector<int>& multipliers,int l ,int r, int index){
+    int solve(vector<int>& nums, vector<int>& multipliers,int l ,int r, 
+              int index,vector<vector<int>> & dp){
         int n = nums.size();
         int m = multipliers.size();
         //base case
@@ -12,8 +12,8 @@ public:
             return dp[index][l];
         }
         int x = multipliers[index];
-        int left = (nums[l] * x) + solve(nums, multipliers, l+1,r, index+1);
-        int right = (nums[r] * x) + solve(nums, multipliers,l,r-1,index+1);
+        int left = (nums[l] * x) + solve(nums, multipliers, l+1,r, index+1,dp);
+        int right = (nums[r] * x) + solve(nums, multipliers,l,r-1,index+1,dp);
         return dp[index][l] = max(left, right);
     }
     
@@ -23,7 +23,7 @@ public:
         int l =0;
         int r = n-1;
         int index = 0;
-        dp.resize(m+1, vector<int>(m+1,INT_MIN));
-        return solve(nums,multipliers, l, r, index);
+        vector<vector<int>> dp(m+1, vector<int>(m+1,INT_MIN));
+        return solve(nums,multipliers, l, r, index,dp);
     }
 };
