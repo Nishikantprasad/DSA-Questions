@@ -16,7 +16,7 @@ public:
             return;
         }
         path.push_back(root->val);
-        if (!root->left && !root->right && targetSum == root->val) {
+        if (root->left==NULL && root->right==NULL && targetSum == root->val) {
             ans.push_back(path);
         }
         dfs(root->left, targetSum - root->val, path, ans);
