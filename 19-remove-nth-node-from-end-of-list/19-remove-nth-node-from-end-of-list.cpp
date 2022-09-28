@@ -23,10 +23,8 @@ public:
             slow = slow->next;
             
         }
-        ListNode* d = slow->next;
-        
         slow->next = slow->next->next;
-        delete d;
+        
         return start->next;
         
     }
