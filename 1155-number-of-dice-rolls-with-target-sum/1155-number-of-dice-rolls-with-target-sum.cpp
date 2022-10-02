@@ -14,6 +14,7 @@ public:
         if(dice == 0 && target == 0){
             return 1;
         }
+        //Step 3:
         if(dp[dice][target] != -1){
             return dp[dice][target];
         }
@@ -21,10 +22,12 @@ public:
         for(int i=1;i<=faces;i++){
             ans = ans + solve(dice-1,faces, target-i,dp);
         }
+        //Step 2:
         return dp[dice][target] = ans%1000000007 ;
     }
     
     int numRollsToTarget(int n, int k, int target) {
+        //Step1:
         vector<vector<int>> dp(n+1,vector<int>(target+1,-1));
         return solve(n, k , target,dp);
     }
