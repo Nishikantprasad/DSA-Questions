@@ -1,17 +1,17 @@
 class Solution {
 public:
+    // This is 1d DP question
     
-    int solve(int n , vector<int> & dp){
-        //base case;
+    int solve(int n,vector<int> &dp){
+        //base case
         if(n==0){
             return 0;
         }
-        
-        if(dp[n] != -1){
+        if(dp[n]!= -1){
             return dp[n];
         }
         
-        int ans = n;
+        int ans =n;
         for(int i =1;i*i<=n;i++){
             int temp = i*i;
             ans = min(ans, 1+solve(n-temp,dp));
@@ -20,10 +20,8 @@ public:
         return dp[n];
     }
     
-    
     int numSquares(int n) {
-        vector<int>dp(n+1,-1);
-        return solve(n ,dp);
-        
+        vector<int> dp(n+1,-1);
+        return solve(n,dp);
     }
 };
